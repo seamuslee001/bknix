@@ -2,7 +2,7 @@
 # add all extensions needed as buildInputs and don't forget to load them in the php.ini above
 
 let
-    pkgs = import (import ../../pins/19.03.nix) {};
+    pkgs = import (import ../../pins/php74.nix) {};
     ## TEST ME: Do we need to set config.php.mysqlnd = true?
 
     stdenv = pkgs.stdenv;
@@ -33,7 +33,7 @@ let
     '';
 
     phpOverride = stdenv.mkDerivation rec {
-        name = "bknix-php73";
+        name = "bknix-php74";
         ## TEST ME: Do we still need imagick? Can we get away with gd nowadays?
         # buildInputs = [phpRuntime phpPkgs.xdebug phpPkgs.redis phpPkgs.yaml phpPkgs.memcached phpPkgs.imagick phpExtras.timecop pkgs.makeWrapper];
         buildInputs = [phpRuntime phpPkgs.xdebug phpPkgs.redis phpPkgs.yaml phpPkgs.memcached phpExtras.timecop pkgs.makeWrapper];
